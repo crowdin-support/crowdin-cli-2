@@ -275,7 +275,10 @@ public class CliProperties {
         }
         if (StringUtils.isEmpty(pb.getBaseUrl())) {
             errors.add(RESOURCE_BUNDLE.getString("missed_base_url"));
-        } else if (!pb.getBaseUrl().matches("(https://(.+\\.)?|http://(.+\\.)?.+\\.dev\\.)crowdin\\.com/api/v2")) {
+        } else if (
+            !pb.getBaseUrl().equals("http://localhost:1080/api/v2") &&
+            !pb.getBaseUrl().matches("(https://(.+\\.)?|http://(.+\\.)?.+\\.dev\\.)crowdin\\.com/api/v2")
+        ) {
             errors.add(RESOURCE_BUNDLE.getString("wrong_base_url"));
         }
 
